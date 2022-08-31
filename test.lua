@@ -1,0 +1,3 @@
+return {
+  ["fruits"] = 1
+}
