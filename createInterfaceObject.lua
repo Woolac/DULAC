@@ -11,7 +11,6 @@ return function(a1)
 	local isOuterLayer = a1[8]
 	
 	local newObject = Instance.new(objectType,objectParent)
-	local newBevel = Instance.new("UICorner",newObject)
 	
 
 	newObject.Name = objectName
@@ -19,10 +18,27 @@ return function(a1)
 	newObject.Position = objectPosition
 	newObject.Size = objectSize
 	
-	newBevel.CornerRadius = UDim.new(objectBevelAmount,0)
+	
+	if objectType ~= "TextLabel" then
+		local newBevel = Instance.new("UICorner",newObject)
+		newBevel.CornerRadius = UDim.new(objectBevelAmount,0)		
+	end
 	
 	if objectType == "Frame" then
 		newObject.BackgroundColor3 = objectColor
+	end
+	
+	if objectType == "TextLabel" then
+		newObject.BackgroundTransparency = 1
+		newObject.TextColor3 = objectColor
+		newObject.TextScaled = true
+		
+		if a1[9] then
+			local labelData = a1[9]
+			
+			newObject.Front = labelData[1]
+			newObject.Text = labelData[2]
+		end
 	end
 	
 	if isOuterLayer then
