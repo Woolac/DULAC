@@ -83,6 +83,8 @@ local createInterface = function()
 	
 	if checkFind then checkFind:TweenPosition(UDim2.new(0.202, 0,0.569, 0),"In","Linear",.2,true)warn("DULAC - ALREADY LOADED") return end
 	
+	
+	--//MainFrames
 	local newUi = createInterfaceObject({
 		"Frame", --//Type
 		primaryObject, --//Parent
@@ -106,7 +108,31 @@ local createInterface = function()
 		true;
 	})
 	UI["topFrame"] = newUi
+	newUi = createInterfaceObject({
+		"Frame",
+		UI["mainFrame"],
+		UDim2.new(0.188, 0,0.499, 0),
+		UDim2.new(0.325, 0,0.9, 0),
+		Color3.fromRGB(83, 22, 22),
+		0.08,
+		generateName();
+		true;
+	})
+	UI["sideFrame"] = newUi
+	newUi = createInterfaceObject({
+		"Frame",
+		UI["mainFrame"],
+		UDim2.new(0.678, 0,0.499, 0),
+		UDim2.new(0.6, 0,0.9, 0),
+		Color3.fromRGB(33, 7, 7),
+		0.08,
+		generateName();
+		false;
+	})
+	UI["profileFrame"] = newUi
 	
+
+	--//Tittle
 	newUi = createInterfaceObject({
 		"TextLabel",
 		UI["topFrame"],
@@ -120,6 +146,8 @@ local createInterface = function()
 	})
 	UI["dulacTitle"] = newUi
 	
+
+	--//Buttons
 	newUi = createInterfaceObject({
 		"TextButton",
 		UI["topFrame"],
@@ -154,8 +182,10 @@ local createInterface = function()
 	UI["topFrame"].BackgroundTransparency = 1
 	UI["topFrame"].UIStroke.Thickness = 0
 	UI["dulacTitle"].TextTransparency = 1
+	
 	UI["closeButton"].Visible = false
 	UI["minimizeButton"].Visible = false
+	UI["sideFrame"].Visible = false
 	
 	createDrag(UI["topFrame"])
 	
@@ -178,6 +208,7 @@ local createInterface = function()
 	wait(.5)
 	UI["closeButton"].Visible = true
 	UI["minimizeButton"].Visible = true
+	UI["sideFrame"].Visible = true
 	
 end
 
