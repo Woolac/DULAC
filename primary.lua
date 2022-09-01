@@ -70,7 +70,7 @@ local createInterface = function()
 		generateName()
 	})
 	UI["mainFrame"] = createMainFrame
-	print(createMainFrame)
+	print(createMainFrame, " FRAME")
 end
 
 
