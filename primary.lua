@@ -1,3 +1,4 @@
+--loadstring(game:HttpGet("https://raw.githubusercontent.com/Woolac/DULAC/main/primary.lua"))()
 local plrs = game:GetService("Players")
 local player = plrs.LocalPlayer
 
@@ -27,7 +28,7 @@ local generateName = function()
 	if #utfCharacters <= 0 then smartKick("SOMETHING WENT WRONG PLEASE REJOIN") return end
 	local amount = math.random(5,15)
 	local value = ""
-	
+
 	for i = 1, amount, 1 do
 		if math.random(1,10) > 7 then
 			value = value..utfCharacters[math.random(1,#utfCharacters)]
@@ -35,14 +36,15 @@ local generateName = function()
 			value = value..math.random(1,1000)
 		end
 	end
-	
+
 	return value
 end
 
-local requireModule = function(a1)
-	if not a1 then return end
-	local module =  loadstring(game:HttpGet(a1))
-	table.insert(modules,modules)
+local requireModule = function(a1,a2)
+	if not a1 or not a2 then return end
+	print("requiring")
+	local module =  loadstring(game:HttpGet(a1))	
+	modules[a2] = module 
 end
 
 local createPrimaryUIObject = function(a1)
@@ -53,7 +55,30 @@ local createPrimaryUIObject = function(a1)
 	primaryObject = newObject
 end
 
+local createInterface = function()
+	if #utfCharacters <= 0 or not primaryObject then smartKick("SOMETHING WENT WRONG PLEASE REJOIN") return end 
+	if not modules["createInterfaceObject"] then smartKick("SOMETHING WENT WRONG PLEASE REJOIN") return end
+	
+	local createInterfaceObject = modules["createInterfaceObject"]
+	
+	local createMainFrame = createInterfaceObject({
+		"Frame",
+		primaryObject,
+		UDim2.new(0.3, 0,0.345, 0),
+		UDim2.new(0.202, 0,0.569, 0),
+		Color3.fromRGB(31, 31, 31),
+		0.05,
+		generateName()
+	})
+	UI["mainFrame"] = createMainFrame
+	print(createMainFrame)
+end
 
 
+--//Calls Modules 
+requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/createInterfaceObject.lua","createInterfaceObject")
+
+--//Core Fuctions
 setUTFCharacters()
 createPrimaryUIObject(CORE)
+createInterface()
