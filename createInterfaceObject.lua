@@ -8,6 +8,7 @@ return function(a1)
 	local objectColor = a1[5]
 	local objectBevelAmount = a1[6]
 	local objectName = a1[7]
+	local isOuterLayer = a1[8]
 	
 	local newObject = Instance.new(objectType,objectParent)
 	local newBevel = Instance.new("UICorner",newObject)
@@ -18,13 +19,15 @@ return function(a1)
 	newObject.Position = objectPosition
 	newObject.Size = objectSize
 	
-	print(objectPosition)
-	print(objectSize)
-	
 	newBevel.CornerRadius = UDim.new(objectBevelAmount,0)
 	
 	if objectType == "Frame" then
 		newObject.BackgroundColor3 = objectColor
+	end
+	
+	if isOuterLayer then
+		local newStroke = Instance.new("UIStroke",newObject)
+		newStroke.Thickness = 2.7
 	end
 	
 	return newObject
