@@ -41,8 +41,7 @@ end
 
 local requireModule = function(a1,a2)
 	if not a1 or not a2 then return end
-	print("requiring")
-	local module =  loadstring(game:HttpGet(a1))	
+	local module =  loadstring(game:HttpGet(a1))()
 	modules[a2] = module 
 end
 
