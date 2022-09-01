@@ -19,13 +19,28 @@ return function(a1)
 	newObject.Size = objectSize
 	
 	
-	if objectType ~= "TextLabel" then
+	if objectBevelAmount then
 		local newBevel = Instance.new("UICorner",newObject)
 		newBevel.CornerRadius = UDim.new(objectBevelAmount,0)		
 	end
 	
 	if objectType == "Frame" then
 		newObject.BackgroundColor3 = objectColor
+	end
+	
+	if objectType == "ScrollingFrame" then
+		newObject.BackgroundTransparency = 1
+		newObject.ScrollBarImageTransparency = 1
+		newObject.ScrollBarThickness = 5
+		if not a1[9] then return end
+		local objectData = a1[9]
+		local newUIList = Instance.new("UIListLayout",newObject)
+		
+		newUIList.HorizontalAlignment = Enum.HorizontalAlignment.Center
+		newUIList.Padding = UDim.new(objectData[2],0)
+		
+		
+		newObject.CanvasSize = objectData[1]
 	end
 	
 	if objectType == "TextButton" then
@@ -38,6 +53,10 @@ return function(a1)
 			newObject.Text = labelData[2]
 			newObject.TextSize = labelData[3]
 			newObject.TextColor3 = labelData[4]
+			    
+			if objectParent:IsA("ScrollingFrame") then
+				newObb.LayoutOrder = labelData[5]
+			end
 		end
 	end
 	
