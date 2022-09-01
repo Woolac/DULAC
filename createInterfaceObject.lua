@@ -28,26 +28,36 @@ return function(a1)
 		newObject.BackgroundColor3 = objectColor
 	end
 	
-	if objectType == "TextLabel" then
-		warn("IS TEXT")
-		newObject.BackgroundTransparency = 1
-		newObject.TextColor3 = objectColor
-		newObject.TextScaled = true
-		warn("SCALED")
+	if objectType == "TextButton" then
+		newObject.BackgroundColor3 = objectColor
 		
 		if a1[9] then
 			local labelData = a1[9]
-			warn(labelData)
+
 			newObject.Font = labelData[1]
 			newObject.Text = labelData[2]
-			warn("TEXT")
+			newObject.TextSize = labelData[3]
+			newObject.TextColor3 = labelData[4]
+		end
+	end
+	
+	if objectType == "TextLabel" then
+		newObject.BackgroundTransparency = 1
+		newObject.TextColor3 = objectColor
+		newObject.TextScaled = true
+		
+		if a1[9] then
+			local labelData = a1[9]
+			
+			newObject.Font = labelData[1]
+			newObject.Text = labelData[2]
 		end
 	end
 	
 	if isOuterLayer then
 		local newStroke = Instance.new("UIStroke",newObject)
 		newStroke.Thickness = 2.7
-		newStroke.Color = Color3.fromRGB(255, 255, 255)
+		newStroke.Color = Color3.fromRGB(255, 74, 74)
 	end
 	
 	return newObject
