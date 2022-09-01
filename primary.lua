@@ -193,7 +193,7 @@ local createInterface = function()
 		"TextButton",
 		UI["sideScrollingFrame"],
 		UDim2.new(0,0,0,0),
-		UDim2.new(0,0,0,0),
+		UDim2.new(0.9, 0,0.035, 0),
 		Color3.fromRGB(255, 74, 74), 
 		.25,
 		generateName();
@@ -207,7 +207,7 @@ local createInterface = function()
 		"TextButton",
 		UI["sideScrollingFrame"],
 		UDim2.new(0,0,0,0),
-		UDim2.new(0,0,0,0),
+		UDim2.new(0.9, 0,0.035, 0),
 		Color3.fromRGB(255, 74, 74),
 		.25,
 		generateName();
