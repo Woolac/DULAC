@@ -28,6 +28,13 @@ return function(a1)
 		newObject.BackgroundColor3 = objectColor
 	end
 	
+	if objectType == "ImageLabel" then
+		newObject.BackgroundTransparency = 1
+		newObject.ImageColor3 = objectColor
+		if not a1[9] then return end
+		newObject.Image = a1[9]
+	end
+	
 	if objectType == "ScrollingFrame" then
 		newObject.BackgroundTransparency = 1
 		newObject.ScrollBarImageTransparency = 1
