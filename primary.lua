@@ -81,7 +81,7 @@ local createInterface = function()
 
 	local createInterfaceObject = modules["createInterfaceObject"]
 	local createDrag = modules["createDrag"]
-	
+	local topButtonsModule = modules["topButtons"]
 	
 	--//MainFrames
 	local newUi = createInterfaceObject({
@@ -174,7 +174,6 @@ local createInterface = function()
 	})
 	UI["closeButton"] = newUi
 	buttons["closeButton"] = {newUi, "closeButton"}
-	
 	newUi = createInterfaceObject({
 		"TextButton",
 		UI["topFrame"],
@@ -188,7 +187,6 @@ local createInterface = function()
 	})
 	UI["minimizeButton"] = newUi
 	buttons["minimizeButton"] = {newUi, "minimizeButton"}
-	
 	newUi = createInterfaceObject({
 		"TextButton",
 		UI["sideScrollingFrame"],
@@ -201,8 +199,7 @@ local createInterface = function()
 		{mainFont,"INFORMATION",11,Color3.fromRGB(255, 255, 255),1}
 	})
 	UI["sidebuttons_information"] = newUi
-	buttons["sidebuttons_information"] = {newUi, "sidebuttons_information"}
-	
+	buttons["sidebuttons_information"] = {newUi, "sidebuttons_information"}	
 	newUi = createInterfaceObject({
 		"TextButton",
 		UI["sideScrollingFrame"],
@@ -232,7 +229,9 @@ local createInterface = function()
 	UI["sideFrame"].Visible = false
 	UI["profileFrame"].Visible = false
 	
+	
 	createDrag(UI["topFrame"])
+	topButtonsModule({{buttons["closeButton"],buttons["minimizeButton"]}, UI})
 	
 	
 	local newAspectRation = Instance.new("UIAspectRatioConstraint",UI["mainFrame"])
@@ -263,6 +262,7 @@ local checkFind = checkIfFind()
 --//Calls Modules 
 requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/createInterfaceObject.lua","createInterfaceObject")
 requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/createDrag.lua","createDrag")
+requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/topButtons.lua","topButtons")
 
 --//Core Fuctions
 
