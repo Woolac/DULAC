@@ -186,6 +186,7 @@ local createInterface = function()
 	UI["closeButton"].Visible = false
 	UI["minimizeButton"].Visible = false
 	UI["sideFrame"].Visible = false
+	UI["profileFrame"].Visible = false
 	
 	createDrag(UI["topFrame"])
 	
@@ -209,6 +210,7 @@ local createInterface = function()
 	UI["closeButton"].Visible = true
 	UI["minimizeButton"].Visible = true
 	UI["sideFrame"].Visible = true
+	UI["profileFrame"].Visible = true
 	
 end
 
