@@ -18,6 +18,9 @@ return function(a1)
 	newObject.Position = objectPosition
 	newObject.Size = objectSize
 	
+	print(objectPosition)
+	print(objectSize)
+	
 	newBevel.CornerRadius = UDim.new(objectBevelAmount,0)
 	
 	if objectType == "Frame" then
