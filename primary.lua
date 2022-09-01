@@ -68,6 +68,7 @@ local createInterface = function()
 	if not modules["createInterfaceObject"] then smartKick("SOMETHING WENT WRONG PLEASE REJOIN") return end
 
 	local createInterfaceObject = modules["createInterfaceObject"]
+	local createDrag = modules["createDrag"]
 	
 	local newUi = createInterfaceObject({
 		"Frame", --//Type
@@ -143,6 +144,8 @@ local createInterface = function()
 	UI["closeButton"].Visible = false
 	UI["minimizeButton"].Visible = false
 	
+	createDrag(UI["topFrame"])
+	
 	
 	local newAspectRation = Instance.new("UIAspectRatioConstraint",UI["mainFrame"])
 	newAspectRation.AspectRatio = 1.761
@@ -168,6 +171,7 @@ end
 
 --//Calls Modules 
 requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/createInterfaceObject.lua","createInterfaceObject")
+requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/createDrag.lua","createDrag")
 
 --//Core Fuctions
 setUTFCharacters()
