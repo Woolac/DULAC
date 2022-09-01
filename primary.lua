@@ -2,10 +2,20 @@ local plrs = game:GetService("Players")
 local player = plrs.LocalPlayer
 
 --//Services
+local TS = game:GetService("TweenService")
 local RS = game:GetService("ReplicatedStorage")
 local CORE = game:GetService("CoreGui")
 
+--//TweensInfo
+local slowTween = TweenInfo.new(1)
+local regularTween = TweenInfo.new(.5)
+local fastTween = TweenInfo.new(.25)
+local fastestTween = TweenInfo.new(.1)
+
+--//Values
 local primaryObject;
+local mainFont = Enum.Font.GothamMedium
+
 local UI = {}
 local buttons = {}
 local modules = {}
@@ -82,6 +92,40 @@ local createInterface = function()
 		true;
 	})
 	UI["topFrame"] = newUi
+	
+	newUi = createInterfaceObject({
+		"TextLabel",
+		UI["topFrame"],
+		UDim2.new(0.134, 0,0.5, 0),
+		UDim2.new(0.268, 0,0.9, 0),
+		Color3.fromRGB(255, 255, 255),
+		nil,
+		generateName();
+		false;
+		{mainFont,"DULAC"}
+	})
+	UI["dulacTitle"] = newUi
+	
+	
+	
+	UI["mainFrame"].BackgroundTransparency = 1
+	UI["mainFrame"].UIStroke.Thickness = 0
+	UI["topFrame"].BackgroundTransparency = 1
+	UI["topFrame"].UIStroke.Thickness = 0
+	UI["dulacTitle"].TextTransparency = 1
+	
+	local tweenTransparency = TS:Create(UI["mainFrame"],regularTween,{BackgroundTransparency = 0})
+	local tweenStroke = TS:Create(UI["mainFrame"].UIStroke,fastTween,{Thickness = 2.7})
+	tweenTransparency:Play()
+	tweenStroke:Play()
+	wait(.1)
+	tweenTransparency = TS:Create(UI["topFrame"],regularTween,{BackgroundTransparency = 0})
+	tweenStroke = TS:Create(UI["topFrame"].UIStroke,fastTween,{Thickness = 2.7})
+	tweenTransparency:Play()
+	tweenStroke:Play()
+	wait(.1)
+	tweenTransparency = TS:Create(UI["dulacTitle"],regularTween,{TextTransparency = 0})
+	tweenTransparency:Play()
 end
 
 
