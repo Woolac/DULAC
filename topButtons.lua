@@ -33,6 +33,7 @@ return function(a1)
 		if minimized then
 			UI["sideFrame"].Visible = false
 			UI["profileFrame"].Visible = false
+			UI["searchFrame"].Visible = false
 
 			local tweenTransparency = TS:Create(UI["mainFrame"],TSI,{BackgroundTransparency = 1})
 			local tweenStroke = TS:Create(UI["mainFrame"].UIStroke,TSI,{Thickness = 0})
@@ -46,6 +47,7 @@ return function(a1)
 			wait(.1)
 			UI["sideFrame"].Visible = true
 			UI["profileFrame"].Visible = true
+			UI["searchFrame"].Visible = true
 		end
 	end
 	
@@ -54,6 +56,7 @@ return function(a1)
 		UI["minimizeButton"].Visible = false
 		UI["sideFrame"].Visible = false
 		UI["profileFrame"].Visible = false
+		UI["searchFrame"].Visible = false
 		
 		local tweenTransparency = TS:Create(UI["dulacTitle"],TSI,{TextTransparency = 1})
 		local tweenStroke = TS:Create(UI["mainFrame"].UIStroke,TSI,{Thickness = 0})
