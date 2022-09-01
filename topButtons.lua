@@ -1,5 +1,5 @@
 local TS = game:GetService("TweenService")
-local TSI = TweenInfo.new(.15)
+local TSI = TweenInfo.new(.1)
 
 local mouseSizes = {
 	["original"] = {
@@ -33,7 +33,6 @@ return function(a1)
 		if minimized then
 			UI["sideFrame"].Visible = false
 			UI["profileFrame"].Visible = false
-			wait(.1)
 
 			local tweenTransparency = TS:Create(UI["mainFrame"],TSI,{BackgroundTransparency = 1})
 			local tweenStroke = TS:Create(UI["mainFrame"].UIStroke,TSI,{Thickness = 0})
@@ -44,10 +43,31 @@ return function(a1)
 			local tweenStroke = TS:Create(UI["mainFrame"].UIStroke,TSI,{Thickness = 2.7})
 			tweenTransparency:Play()
 			tweenStroke:Play()
-			wait(.15)
+			wait(.1)
 			UI["sideFrame"].Visible = true
 			UI["profileFrame"].Visible = true
 		end
+	end
+	
+	local closeFrame = function()
+		UI["closeButton"].Visible = false
+		UI["minimizeButton"].Visible = false
+		UI["sideFrame"].Visible = false
+		UI["profileFrame"].Visible = false
+		
+		local tweenTransparency = TS:Create(UI["dulacTitle"],TSI,{TextTransparency = 1})
+		local tweenStroke = TS:Create(UI["mainFrame"].UIStroke,TSI,{Thickness = 0})
+		
+		tweenTransparency:Play()
+		wait(.1)
+		tweenTransparency = TS:Create(UI["mainFrame"],TSI,{BackgroundTransparency = 0})
+		tweenTransparency:Play()
+		tweenStroke:Play()
+		wait(.1)
+		tweenTransparency = TS:Create(UI["topFrame"],TSI,{BackgroundTransparency = 0})
+		tweenStroke = TS:Create(UI["topFrame"].UIStroke,TSI,{Thickness = 0})
+		tweenTransparency:Play()
+		tweenStroke:Play()
 	end
 	
 	local handleButtons = function()
@@ -71,6 +91,10 @@ return function(a1)
 					
 					if buttonName == "minimizeButton" then
 						minimizeFrame()
+					end
+					
+					if buttonName == "closeButton" then
+						closeFrame()
 					end
 				end)				
 			end
