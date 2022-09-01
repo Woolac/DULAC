@@ -59,17 +59,29 @@ local createInterface = function()
 
 	local createInterfaceObject = modules["createInterfaceObject"]
 
-	local createMainFrame = createInterfaceObject({
-		"Frame",
-		primaryObject,
-		UDim2.new(0.202, 0,0.569, 0),
-		UDim2.new(0.3, 0,0.345, 0),
-		Color3.fromRGB(31, 31, 31),
-		0.05,
-		generateName()
+	local newUi = createInterfaceObject({
+		"Frame", --//Type
+		primaryObject, --//Parent
+		UDim2.new(0.202, 0,0.569, 0), --//Position
+		UDim2.new(0.3, 0,0.345, 0), --//Size
+		Color3.fromRGB(31, 31, 31), --//Color
+		0.05, --Bevel Amount
+		generateName(); --//Name
+		true; --//Is Outer Layer
 	})
-	UI["mainFrame"] = createMainFrame
-	print(createMainFrame)
+	UI["mainFrame"] = newUi
+	
+	newUi = createInterfaceObject({
+		"Frame",
+		UI["mainFrame"],
+		UDim2.new(0.5, 0,-0.156, 0),
+		UDim2.new(1, 0,0.14, 0),
+		Color3.fromRGB(31, 31, 31),
+		0.2,
+		generateName();
+		true;
+	})
+	UI["topFrame"] = newUi
 end
 
 
