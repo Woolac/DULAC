@@ -69,7 +69,6 @@ local createInterface = function()
 
 	local createInterfaceObject = modules["createInterfaceObject"]
 	
-	print("DEBUG")
 	local newUi = createInterfaceObject({
 		"Frame", --//Type
 		primaryObject, --//Parent
@@ -92,7 +91,6 @@ local createInterface = function()
 		generateName();
 		true;
 	})
-	print("AAAAAA")
 	UI["topFrame"] = newUi
 	
 	newUi = createInterfaceObject({
@@ -100,15 +98,41 @@ local createInterface = function()
 		UI["topFrame"],
 		UDim2.new(0.134, 0,0.5, 0),
 		UDim2.new(0.268, 0,0.9, 0),
-		Color3.fromRGB(255, 255, 255),
+		Color3.fromRGB(255, 74, 74),
 		nil,
 		generateName();
 		false;
 		{mainFont,"DULAC"}
 	})
 	UI["dulacTitle"] = newUi
-	print("YOOOO")
 	
+	newUi = createInterfaceObject({
+		"TextButton",
+		UI["topFrame"],
+		UDim2.new(0.917, 0,0.5, 0),
+		UDim2.new(0.122, 0,0.75, 0),
+		Color3.fromRGB(255, 74, 74),
+		.25,
+		generateName();
+		false;
+		{mainFont,"CLOSE",10,Color3.fromRGB(255, 255, 255)}
+	})
+	UI["closeButton"] = newUi
+	buttons["closeButton"] = {newUi, "closeButton"}
+	
+	newUi = createInterfaceObject({
+		"TextButton",
+		UI["topFrame"],
+		UDim2.new(0.917, 0,0.5, 0),
+		UDim2.new(0.122, 0,0.75, 0),
+		Color3.fromRGB(255, 74, 74),
+		.25,
+		generateName();
+		false;
+		{mainFont,"MINIMIZE",11,Color3.fromRGB(255, 255, 255)}
+	})
+	UI["minimizeButton"] = newUi
+	buttons["minimizeButton"] = {newUi, "minimizeButton"}
 	
 	
 	UI["mainFrame"].BackgroundTransparency = 1
@@ -116,19 +140,29 @@ local createInterface = function()
 	UI["topFrame"].BackgroundTransparency = 1
 	UI["topFrame"].UIStroke.Thickness = 0
 	UI["dulacTitle"].TextTransparency = 1
+	UI["closeButton"].Visible = false
+	UI["minimizeButton"].Visible = false
 	
-	local tweenTransparency = TS:Create(UI["mainFrame"],regularTween,{BackgroundTransparency = 0})
+	
+	local newAspectRation = Instance.new("UIAspectRatioConstraint",UI["mainFrame"])
+	newAspectRation.AspectRatio = 1.761
+	
+	local tweenTransparency = TS:Create(UI["mainFrame"],slowTween,{BackgroundTransparency = 0})
 	local tweenStroke = TS:Create(UI["mainFrame"].UIStroke,fastTween,{Thickness = 2.7})
 	tweenTransparency:Play()
 	tweenStroke:Play()
-	wait(.1)
-	tweenTransparency = TS:Create(UI["topFrame"],regularTween,{BackgroundTransparency = 0})
+	wait(.5)
+	tweenTransparency = TS:Create(UI["topFrame"],slowTween,{BackgroundTransparency = 0})
 	tweenStroke = TS:Create(UI["topFrame"].UIStroke,fastTween,{Thickness = 2.7})
 	tweenTransparency:Play()
 	tweenStroke:Play()
-	wait(.1)
-	tweenTransparency = TS:Create(UI["dulacTitle"],regularTween,{TextTransparency = 0})
+	wait(.5)
+	tweenTransparency = TS:Create(UI["dulacTitle"],fastTween,{TextTransparency = 0})
 	tweenTransparency:Play()
+	wait(.5)
+	UI["closeButton"].Visible = true
+	UI["minimizeButton"].Visible = true
+	
 end
 
 
