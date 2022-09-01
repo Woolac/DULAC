@@ -5,12 +5,12 @@ local mouseSizes = {
 	};
 	
 	["enter"] = {
-		["closeButton"] = UDim2.new(0.1, 0,0.6, 0);
+		["closeButton"] = UDim2.new(0.125, 0,0.8, 0);
 		["minimizeButton"] = UDim2.new(0.17, 0,0.8, 0);
 	};
 	
 	["click"] = {
-		["closeButton"] =  UDim2.new(0.125, 0,0.8, 0);
+		["closeButton"] =  UDim2.new(0.1, 0,0.6, 0);
 		["minimizeButton"] = UDim2.new(0.15, 0,0.7, 0);
 	};
 }
@@ -30,6 +30,10 @@ return function(a1)
 			if button:IsA("TextButton") then
 				button.MouseEnter:Connect(function()
 					button:TweenSize(mouseSizes["enter"][buttonName],"In","Linear",.15,true)
+				end)
+				
+				button.MouseLeave:Connect(function()
+					button:TweenSize(mouseSizes["original"][buttonName],"In","Linear",.15,true)
 				end)
 				
 				button.MouseButton1Up:Connect(function()
