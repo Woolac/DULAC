@@ -28,6 +28,7 @@ return function(a1)
 	if isOuterLayer then
 		local newStroke = Instance.new("UIStroke",newObject)
 		newStroke.Thickness = 2.7
+		newStroke.Color = Color3.fromRGB(255, 255, 255)
 	end
 	
 	return newObject
