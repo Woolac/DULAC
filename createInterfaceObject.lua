@@ -55,7 +55,7 @@ return function(a1)
 			newObject.TextColor3 = labelData[4]
 			    
 			if objectParent:IsA("ScrollingFrame") then
-				newObb.LayoutOrder = labelData[5]
+				newObject.LayoutOrder = labelData[5]
 			end
 		end
 	end
