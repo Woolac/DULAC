@@ -1,3 +1,0 @@
-return {
-  ["fruits"] = 1
-}
