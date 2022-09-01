@@ -140,7 +140,7 @@ local createInterface = function()
 		nil,
 		generateName();
 		false;
-		{UDim2.new(0, 0,3, 0),0.001}
+		{UDim2.new(0, 0,3, 0),0.01}
 	})
 	UI["sideScrollingFrame"] = newUi
 	
