@@ -36,7 +36,7 @@ return function(a1)
 		if a1[9] then
 			local labelData = a1[9]
 			
-			newObject.Front = labelData[1]
+			newObject.Font = labelData[1]
 			newObject.Text = labelData[2]
 		end
 	end
