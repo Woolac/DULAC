@@ -57,10 +57,12 @@ end
 
 local createPrimaryUIObject = function(a1)
 	if not a1 then return end
+	if _G["DULAC"] then return end
 	local name = generateName()
 	local newObject = Instance.new("ScreenGui",a1)
 	newObject.Name = name
 	primaryObject = newObject
+	_G["DULAC"] = true
 end
 
 local checkIfFind = function()
