@@ -68,6 +68,9 @@ return function(a1)
 		tweenStroke = TS:Create(UI["topFrame"].UIStroke,TSI,{Thickness = 0})
 		tweenTransparency:Play()
 		tweenStroke:Play()
+		wait(.15)
+		UI["mainFrame"].Parent:Destroy()
+		_G["DULAC"] = false
 	end
 	
 	local handleButtons = function()
