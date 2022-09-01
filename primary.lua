@@ -221,7 +221,6 @@ requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/createInterfa
 requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/createDrag.lua","createDrag")
 
 --//Core Fuctions
-print(checkFind)
 if checkFind then
 	checkFind:TweenPosition(UDim2.new(0.202, 0,0.569, 0),"In","Linear",.2,true)
 	warn("DULAC - ALREADY LOADED") 
