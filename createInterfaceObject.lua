@@ -29,15 +29,18 @@ return function(a1)
 	end
 	
 	if objectType == "TextLabel" then
+		warn("IS TEXT")
 		newObject.BackgroundTransparency = 1
 		newObject.TextColor3 = objectColor
 		newObject.TextScaled = true
+		warn("SCALED")
 		
 		if a1[9] then
 			local labelData = a1[9]
-			
+			warn(labelData)
 			newObject.Font = labelData[1]
 			newObject.Text = labelData[2]
+			warn("TEXT")
 		end
 	end
 	
