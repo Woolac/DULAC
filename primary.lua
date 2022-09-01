@@ -131,6 +131,20 @@ local createInterface = function()
 	})
 	UI["profileFrame"] = newUi
 	
+	--//Scrolling Frames
+	newUi = createInterfaceObject({
+		"ScrollingFrame",
+		UI["sideFrame"],
+		UDim2.new(0.5, 0,0.5, 0),
+		UDim2.new(0.9, 0,0.9, 0),
+		Color3.fromRGB(33, 7, 7),
+		nil,
+		generateName();
+		false;
+		{UDim2.new(0, 0,3, 0),0.001}
+	})
+	UI["sideScrollingFrame"] = newUi
+	
 
 	--//Tittle
 	newUi = createInterfaceObject({
@@ -176,6 +190,37 @@ local createInterface = function()
 	UI["minimizeButton"] = newUi
 	buttons["minimizeButton"] = {newUi, "minimizeButton"}
 	
+	newUi = createInterfaceObject({
+		"TextButton",
+		UI["sideScrollingFrame"],
+		UDim2.new(0,0,0,0),
+		UDim2.new(0,0,0,0),
+		Color3.fromRGB(255, 74, 74), 
+		.25,
+		generateName();
+		false;
+		{mainFont,"INFORMATION",11,Color3.fromRGB(255, 255, 255),1}
+	})
+	UI["sidebuttons_information"] = newUi
+	buttons["sidebuttons_information"] = {newUi, "sidebuttons_information"}
+	
+	newUi = createInterfaceObject({
+		"TextButton",
+		UI["sideScrollingFrame"],
+		UDim2.new(0,0,0,0),
+		UDim2.new(0,0,0,0),
+		Color3.fromRGB(255, 74, 74),
+		.25,
+		generateName();
+		false;
+		{mainFont,"TEST",11,Color3.fromRGB(255, 255, 255),2}
+	})
+	UI["sidebuttons_test"] = newUi
+	buttons["sidebuttons_test"] = {newUi, "sidebuttons_test"}
+	
+	
+	
+	UI["sideFrame"].ClipsDescendants = true
 	
 	UI["mainFrame"].BackgroundTransparency = 1
 	UI["mainFrame"].UIStroke.Thickness = 0
@@ -221,7 +266,8 @@ requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/createInterfa
 requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/createDrag.lua","createDrag")
 
 --//Core Fuctions
-if checkFind then
+
+if checkFind() then
 	checkFind:TweenPosition(UDim2.new(0.202, 0,0.569, 0),"In","Linear",.2,true)
 	warn("DULAC - ALREADY LOADED") 
 else
