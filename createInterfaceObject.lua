@@ -1,6 +1,6 @@
 return function(a1)
 	if not a1 then return end
-	
+	print(a1, " SETTINGS")
 	local objectType = a1[1]
 	local objectParent = a1[2]
 	local objectSize = a1[3]
