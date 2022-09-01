@@ -123,8 +123,8 @@ local createInterface = function()
 	newUi = createInterfaceObject({
 		"TextButton",
 		UI["topFrame"],
-		UDim2.new(0.917, 0,0.5, 0),
-		UDim2.new(0.122, 0,0.75, 0),
+		UDim2.new(0.757, 0,0.5, 0),
+		UDim2.new(0.163, 0,0.75, 0),
 		Color3.fromRGB(255, 74, 74),
 		.25,
 		generateName();
