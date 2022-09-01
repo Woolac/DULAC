@@ -68,7 +68,8 @@ local createInterface = function()
 	if not modules["createInterfaceObject"] then smartKick("SOMETHING WENT WRONG PLEASE REJOIN") return end
 
 	local createInterfaceObject = modules["createInterfaceObject"]
-
+	
+	print("DEBUG")
 	local newUi = createInterfaceObject({
 		"Frame", --//Type
 		primaryObject, --//Parent
@@ -91,6 +92,7 @@ local createInterface = function()
 		generateName();
 		true;
 	})
+	print("AAAAAA")
 	UI["topFrame"] = newUi
 	
 	newUi = createInterfaceObject({
@@ -105,6 +107,7 @@ local createInterface = function()
 		{mainFont,"DULAC"}
 	})
 	UI["dulacTitle"] = newUi
+	print("YOOOO")
 	
 	
 	
