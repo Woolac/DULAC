@@ -66,6 +66,7 @@ local createPrimaryUIObject = function(a1)
 end
 
 local checkIfFind = function()
+	if not _G["DULAC"] then return end
 	for _, v in pairs(CORE:GetDescendants()) do
 		if v:IsA("TextLabel") then
 			if v.Text == "DULAC" then
@@ -81,9 +82,6 @@ local createInterface = function()
 
 	local createInterfaceObject = modules["createInterfaceObject"]
 	local createDrag = modules["createDrag"]
-	local checkFind = checkIfFind()
-	
-	if checkFind then checkFind:TweenPosition(UDim2.new(0.202, 0,0.569, 0),"In","Linear",.2,true)warn("DULAC - ALREADY LOADED") return end
 	
 	
 	--//MainFrames
@@ -216,12 +214,15 @@ local createInterface = function()
 	
 end
 
+local checkFind = checkIfFind()
 
 --//Calls Modules 
 requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/createInterfaceObject.lua","createInterfaceObject")
 requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/createDrag.lua","createDrag")
 
 --//Core Fuctions
+
+if checkFind() then checkFind:TweenPosition(UDim2.new(0.202, 0,0.569, 0),"In","Linear",.2,true)warn("DULAC - ALREADY LOADED") return end
 setUTFCharacters()
 createPrimaryUIObject(CORE)
-createInterface()
+createInterface()`
