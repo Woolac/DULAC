@@ -63,12 +63,26 @@ local createPrimaryUIObject = function(a1)
 	primaryObject = newObject
 end
 
+local checkIfFind = function()
+	for _, v in pairs(CORE:GetDescendants()) do
+		if v:IsA("TextLabel") then
+			if v.Text == "DULAC" then
+				return v.Parent.Parent
+			end
+		end
+	end
+end
+
 local createInterface = function()
 	if #utfCharacters <= 0 or not primaryObject then smartKick("SOMETHING WENT WRONG PLEASE REJOIN") return end 
 	if not modules["createInterfaceObject"] then smartKick("SOMETHING WENT WRONG PLEASE REJOIN") return end
 
 	local createInterfaceObject = modules["createInterfaceObject"]
 	local createDrag = modules["createDrag"]
+	local checkFind = checkIfFind()
+	
+	
+	if checkFind then checkFind.Position = UDim2.new(0.202, 0,0.569, 0) warn("DULAC - ALREADY LOADED") return end
 	
 	local newUi = createInterfaceObject({
 		"Frame", --//Type
