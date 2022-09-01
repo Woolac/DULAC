@@ -81,8 +81,7 @@ local createInterface = function()
 	local createDrag = modules["createDrag"]
 	local checkFind = checkIfFind()
 	
-	
-	if checkFind then checkFind.Position = UDim2.new(0.202, 0,0.569, 0) warn("DULAC - ALREADY LOADED") return end
+	if checkFind then checkFind:TweenPosition(UDim2.new(0.202, 0,0.569, 0),"In","Linear",.2,true)warn("DULAC - ALREADY LOADED") return end
 	
 	local newUi = createInterfaceObject({
 		"Frame", --//Type
