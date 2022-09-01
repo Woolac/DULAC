@@ -4,6 +4,7 @@ local player = plrs.LocalPlayer
 --//Services
 local getService = game:GetService("HttpGet")
 local RS = game:GetService("ReplicatedStorage")
+local CORE = game:GetService("CoreGui")
 
 local primaryObject;
 local UI = {}
@@ -51,8 +52,10 @@ local createPrimaryUIObject = function(a1)
 	local newObject = Instance.new("ScreenGui",a1)
 	newObject.Name = name
 	primaryObject = newObject
+	print(newObject)
 end
 
 
+
 setUTFCharacters()
-createPrimaryUIObject(player.PlayerGui)
+createPrimaryUIObject(CORE)
