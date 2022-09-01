@@ -1,4 +1,3 @@
---loadstring(game:HttpGet("https://raw.githubusercontent.com/Woolac/DULAC/main/primary.lua"))()
 local plrs = game:GetService("Players")
 local player = plrs.LocalPlayer
 
