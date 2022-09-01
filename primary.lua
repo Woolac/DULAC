@@ -121,8 +121,19 @@ local createInterface = function()
 	newUi = createInterfaceObject({
 		"Frame",
 		UI["mainFrame"],
-		UDim2.new(0.678, 0,0.499, 0),
-		UDim2.new(0.6, 0,0.9, 0),
+		UDim2.new(0.678, 0,0.094, 0),
+		UDim2.new(0.6, 0,0.091, 0),
+		Color3.fromRGB(83, 22, 22),
+		0.3,
+		generateName();
+		true;
+	})
+	UI["searchFrame"] = newUi
+	newUi = createInterfaceObject({
+		"Frame",
+		UI["mainFrame"],
+		UDim2.new(0.678, 0,0.569, 0),
+		UDim2.new(0.6, 0,0.761, 0),
 		Color3.fromRGB(33, 7, 7),
 		0.08,
 		generateName();
@@ -159,6 +170,21 @@ local createInterface = function()
 	})
 	UI["dulacTitle"] = newUi
 	
+
+	--//Images 
+	newUi = createInterfaceObject({
+		"ImageLabel",
+		UI["topFrame"],
+		UDim2.new(0.05, 0,0.5, 0),
+		UDim2.new(0.09, 0,0.9, 0),
+		Color3.fromRGB(255, 255, 255),
+		nil,
+		generateName();
+		false;
+		"rbxassetid://3605509925";
+	})
+	UI["searchIcon"] = newUi
+
 
 	--//Buttons
 	newUi = createInterfaceObject({
@@ -228,6 +254,9 @@ local createInterface = function()
 	UI["minimizeButton"].Visible = false
 	UI["sideFrame"].Visible = false
 	UI["profileFrame"].Visible = false
+	UI["searchFrame"].Visible = false
+	
+
 	
 	
 	createDrag(UI["topFrame"])
@@ -254,6 +283,7 @@ local createInterface = function()
 	UI["minimizeButton"].Visible = true
 	UI["sideFrame"].Visible = true
 	UI["profileFrame"].Visible = true
+	UI["searchFrame"].Visible = true
 	
 end
 
@@ -262,7 +292,7 @@ local checkFind = checkIfFind()
 --//Calls Modules 
 requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/createInterfaceObject.lua","createInterfaceObject")
 requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/createDrag.lua","createDrag")
-requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/topButtons.lua","topButtons")
+requireModule("","topButtons")
 
 --//Core Fuctions
 
