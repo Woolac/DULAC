@@ -1,8 +1,8 @@
+--loadstring(game:HttpGet("https://raw.githubusercontent.com/Woolac/DULAC/main/primary.lua"))()
 local plrs = game:GetService("Players")
 local player = plrs.LocalPlayer
 
 --//Services
-local getService = game:GetService("HttpGet")
 local RS = game:GetService("ReplicatedStorage")
 local CORE = game:GetService("CoreGui")
 
@@ -26,7 +26,7 @@ end
 
 local generateName = function()
 	if #utfCharacters <= 0 then smartKick("SOMETHING WENT WRONG PLEASE REJOIN") return end
-	local amount = math.random(5,30)
+	local amount = math.random(5,15)
 	local value = ""
 	
 	for i = 1, amount, 1 do
@@ -42,7 +42,7 @@ end
 
 local requireModule = function(a1)
 	if not a1 then return end
-	local module =  loadstring(getService(a1))
+	local module =  loadstring(game:HttpGet(a1))
 	table.insert(modules,modules)
 end
 
@@ -52,7 +52,6 @@ local createPrimaryUIObject = function(a1)
 	local newObject = Instance.new("ScreenGui",a1)
 	newObject.Name = name
 	primaryObject = newObject
-	print(newObject)
 end
 
 
