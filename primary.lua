@@ -222,7 +222,11 @@ requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/createDrag.lu
 
 --//Core Fuctions
 
-if checkFind() then checkFind:TweenPosition(UDim2.new(0.202, 0,0.569, 0),"In","Linear",.2,true)warn("DULAC - ALREADY LOADED") return end
-setUTFCharacters()
-createPrimaryUIObject(CORE)
-createInterface()`
+if checkFind() then
+	checkFind:TweenPosition(UDim2.new(0.202, 0,0.569, 0),"In","Linear",.2,true)
+	warn("DULAC - ALREADY LOADED") 
+else
+	setUTFCharacters()
+	createPrimaryUIObject(CORE)
+	createInterface()
+end
