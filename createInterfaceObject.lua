@@ -45,6 +45,7 @@ return function(a1)
 		
 		newUIList.HorizontalAlignment = Enum.HorizontalAlignment.Center
 		newUIList.Padding = UDim.new(objectData[2],0)
+		newUIList.SortOrder = "LayoutOrder"
 		
 		
 		newObject.CanvasSize = objectData[1]
