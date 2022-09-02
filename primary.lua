@@ -257,6 +257,7 @@ local createInterface = function()
 	
 
 	UI["sideFrame"].ClipsDescendants = true
+	UI["sideScrollingFrame"].ClipsDescendants = false
 
 	UI["mainFrame"].BackgroundTransparency = 1
 	UI["mainFrame"].UIStroke.Thickness = 0
@@ -279,6 +280,7 @@ local createInterface = function()
 			local newStroke = Instance.new("UIStroke",v[1])
 			newStroke.Thickness = 2.5
 			newStroke.Transparency = 1
+			newStroke.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
 			newStroke.Color = Color3.fromRGB(114, 255, 135)
 		end
 	end
