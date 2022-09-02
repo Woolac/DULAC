@@ -61,6 +61,7 @@ return function(a1)
 
 			newObject.Font = labelData[1]
 			newObject.PlaceholderText = labelData[2]
+			newObject.Text = ""
 			newObject.TextScaled = true
 			newObject.TextXAlignment = "Left"
 		end
