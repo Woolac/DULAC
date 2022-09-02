@@ -317,10 +317,12 @@ end
 local checkFind = checkIfFind()
 
 --//Calls Modules 
+print("YOOOOO")
 requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/createInterfaceObject.lua","createInterfaceObject")
 requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/createDrag.lua","createDrag")
 requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/topButtons.lua","topButtons")
 requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/sideButtons.lua","sideButtons")
+print("REQUIRES")
 
 --//Core Fuctions
 
