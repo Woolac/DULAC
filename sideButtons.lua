@@ -15,6 +15,7 @@ return function(a1)
 			local button = v[1]
 			local buttonName = v[2]
 			
+			
 			if button:IsA("TextButton") then
 				local stroke = button:WaitForChild("UIStroke")
 				
@@ -37,13 +38,16 @@ return function(a1)
 							selection = nil
 							TS:Create(stroke,TSI,{Transparency = 1}):Play()
 						else
+							selection.BackgroundColor3 = Color3.fromRGB(255, 74, 74)
 							TS:Create(selection:WaitForChild("UIStroke"),TSI,{Transparency = 1}):Play()
 							selection = button
 							TS:Create(stroke,TSI,{Transparency = 0}):Play()
+							button.BackgroundColor3 = Color3.fromRGB(255, 125, 108)
 						end
 					else
 						selection = button
 						TS:Create(stroke,TSI,{Transparency = 0}):Play()
+						button.BackgroundColor3 = Color3.fromRGB(255, 125, 108)
 					end
 				end)				
 			end
