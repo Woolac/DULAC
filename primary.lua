@@ -21,6 +21,18 @@ local buttons = {}
 local modules = {}
 local utfCharacters = {}
 
+local buttonTypes = {
+	{"MAIN","sidebuttons_main",1};
+	{"PLAYER","sidebuttons_player",2};
+	{"COMBAT","sidebuttons_combat",3};
+	{"BUYING","sidebuttons_buying",4};
+	{"MONEY","sidebuttons_money",5};
+	{"ESP","sidebuttons_esp",6};
+	{"TELEPORTS","sidebuttons_teleports",7};
+	{"MISC","sidebuttons_misc",8};
+	{"CREDITS","sidebuttons_credits",9};
+}
+
 
 local smartKick = function(a1)
 	if not a1 then return end
@@ -228,32 +240,24 @@ local createInterface = function()
 	})
 	UI["minimizeButton"] = newUi
 	buttons["minimizeButton"] = {newUi, "minimizeButton"}
-	newUi = createInterfaceObject({
-		"TextButton",
-		UI["sideScrollingFrame"],
-		UDim2.new(0,0,0,0),
-		UDim2.new(0.9, 0,0.035, 0),
-		Color3.fromRGB(255, 74, 74), 
-		.25,
-		generateName();
-		false;
-		{mainFont,"INFORMATION",11,Color3.fromRGB(255, 255, 255),1}
-	})
-	UI["sidebuttons_information"] = newUi
-	buttons["sidebuttons_information"] = {newUi, "sidebuttons_information"}	
-	newUi = createInterfaceObject({
-		"TextButton",
-		UI["sideScrollingFrame"],
-		UDim2.new(0,0,0,0),
-		UDim2.new(0.9, 0,0.035, 0),
-		Color3.fromRGB(255, 74, 74),
-		.25,
-		generateName();
-		false;
-		{mainFont,"TEST",11,Color3.fromRGB(255, 255, 255),2}
-	})
-	UI["sidebuttons_test"] = newUi
-	buttons["sidebuttons_test"] = {newUi, "sidebuttons_test"}
+	
+	for _, v in pairs(buttonTypes) do
+		newUi = createInterfaceObject({
+			"TextButton",
+			UI["sideScrollingFrame"],
+			UDim2.new(0,0,0,0),
+			UDim2.new(0.9, 0,0.035, 0),
+			Color3.fromRGB(255, 74, 74), 
+			.25,
+			generateName();
+			false;
+			{mainFont,v[1],11,Color3.fromRGB(255, 255, 255),v[3]}
+		})
+		
+		UI[v[2]] = newUi
+		buttons[v[2]] = {newUi, v[2]}
+	end
+	
 	
 
 	UI["sideFrame"].ClipsDescendants = true
