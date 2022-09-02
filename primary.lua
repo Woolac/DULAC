@@ -82,7 +82,8 @@ local createInterface = function()
 	local createInterfaceObject = modules["createInterfaceObject"]
 	local createDrag = modules["createDrag"]
 	local topButtonsModule = modules["topButtons"]
-	
+	local sideButtonsModule = modules["sideButtons"]
+
 	--//MainFrames
 	local newUi = createInterfaceObject({
 		"Frame", --//Type
@@ -95,7 +96,7 @@ local createInterface = function()
 		true; --//Is Outer Layer
 	})
 	UI["mainFrame"] = newUi
-	
+
 	newUi = createInterfaceObject({
 		"Frame",
 		UI["mainFrame"],
@@ -140,7 +141,7 @@ local createInterface = function()
 		false;
 	})
 	UI["profileFrame"] = newUi
-	
+
 	--//Scrolling Frames
 	newUi = createInterfaceObject({
 		"ScrollingFrame",
@@ -154,7 +155,7 @@ local createInterface = function()
 		{UDim2.new(0, 0,3, 0),0.01}
 	})
 	UI["sideScrollingFrame"] = newUi
-	
+
 
 	--//Tittle
 	newUi = createInterfaceObject({
@@ -169,7 +170,7 @@ local createInterface = function()
 		{mainFont,"DULAC"}
 	})
 	UI["dulacTitle"] = newUi
-	
+
 
 	--//Images 
 	newUi = createInterfaceObject({
@@ -254,32 +255,43 @@ local createInterface = function()
 	UI["sidebuttons_test"] = newUi
 	buttons["sidebuttons_test"] = {newUi, "sidebuttons_test"}
 	
-	
-	
+
 	UI["sideFrame"].ClipsDescendants = true
-	
+
 	UI["mainFrame"].BackgroundTransparency = 1
 	UI["mainFrame"].UIStroke.Thickness = 0
 	UI["topFrame"].BackgroundTransparency = 1
 	UI["topFrame"].UIStroke.Thickness = 0
 	UI["dulacTitle"].TextTransparency = 1
-	
+
 	UI["closeButton"].Visible = false
 	UI["minimizeButton"].Visible = false
 	UI["sideFrame"].Visible = false
 	UI["profileFrame"].Visible = false
 	UI["searchFrame"].Visible = false
 	
+	local allSideButtons = {}
+	
+	for _, v in pairs(buttons) do
+		if string.match(v[2], "sidebuttons") then
+			table.insert(allSideButtons,v)
+			
+			local newStroke = Instance.new("UIStroke",v)
+			newStroke.Thickness = 2.5
+			newStroke.Transparency = 1
+			newStroke.Color = Color3.fromRGB(114, 255, 135)
+		end
+	end
 
-	
-	
+
 	createDrag(UI["topFrame"])
 	topButtonsModule({{buttons["closeButton"],buttons["minimizeButton"]}, UI})
-	
-	
+	sideButtonsModule({allSideButtons,UI})
+
+
 	local newAspectRation = Instance.new("UIAspectRatioConstraint",UI["mainFrame"])
 	newAspectRation.AspectRatio = 1.761
-	
+
 	local tweenTransparency = TS:Create(UI["mainFrame"],slowTween,{BackgroundTransparency = 0})
 	local tweenStroke = TS:Create(UI["mainFrame"].UIStroke,fastTween,{Thickness = 2.7})
 	tweenTransparency:Play()
@@ -298,7 +310,7 @@ local createInterface = function()
 	UI["sideFrame"].Visible = true
 	UI["profileFrame"].Visible = true
 	UI["searchFrame"].Visible = true
-	
+
 end
 
 local checkFind = checkIfFind()
@@ -307,6 +319,7 @@ local checkFind = checkIfFind()
 requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/createInterfaceObject.lua","createInterfaceObject")
 requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/createDrag.lua","createDrag")
 requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/topButtons.lua","topButtons")
+requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/sideButtons.lua","sideButtons")
 
 --//Core Fuctions
 
