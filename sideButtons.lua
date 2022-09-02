@@ -4,7 +4,7 @@ local TSI = TweenInfo.new(.15)
 
 return function(a1)
 	if not a1 then return end
-	
+	print("YO")
 	local sideButtons = a1[1]
 	local UI = a1[2]
 	
@@ -20,6 +20,7 @@ return function(a1)
 				local stroke = button:WaitForChild("UIStroke")
 				
 				button.MouseEnter:Connect(function()
+					print("ENTERED")
 					button:TweenSize(UDim2.new(0.95, 0,0.04, 0),"In","Linear",.15,true)
 				end)
 				
@@ -28,11 +29,11 @@ return function(a1)
 				end)
 				
 				button.MouseButton1Up:Connect(function()
+					print("CLICKED")
 					button:TweenSize(UDim2.new(0.85, 0,0.03, 0),"In","Linear",.15,true)
 					wait(.15)
 					button:TweenSize(UDim2.new(0.85, 0,0.03, 0),"In","Linear",.1,true)
 					
-					local tween;
 					
 					if selection then
 						if selection == button then
