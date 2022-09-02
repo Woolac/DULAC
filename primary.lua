@@ -274,10 +274,9 @@ local createInterface = function()
 	
 	for _, v in pairs(buttons) do
 		if string.match(v[2], "sidebuttons") then
-			print(v[1])
 			table.insert(allSideButtons,v)
 			
-			local newStroke = Instance.new("UIStroke",v)
+			local newStroke = Instance.new("UIStroke",v[1])
 			newStroke.Thickness = 2.5
 			newStroke.Transparency = 1
 			newStroke.Color = Color3.fromRGB(114, 255, 135)
@@ -317,12 +316,10 @@ end
 local checkFind = checkIfFind()
 
 --//Calls Modules 
-print("YOOOOO")
 requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/createInterfaceObject.lua","createInterfaceObject")
 requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/createDrag.lua","createDrag")
 requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/topButtons.lua","topButtons")
 requireModule("https://raw.githubusercontent.com/Woolac/DULAC/main/sideButtons.lua","sideButtons")
-print("REQUIRES")
 
 --//Core Fuctions
 
