@@ -176,7 +176,7 @@ local createInterface = function()
 		"ImageLabel",
 		UI["searchFrame"],
 		UDim2.new(0.05, 0,0.5, 0),
-		UDim2.new(0.08, 0,0.9, 0),
+		UDim2.new(0.07, 0,0.9, 0),
 		Color3.fromRGB(255, 255, 255),
 		nil,
 		generateName();
@@ -185,6 +185,20 @@ local createInterface = function()
 	})
 	UI["searchIcon"] = newUi
 
+
+	--//InputBox
+	newUi = createInterfaceObject({
+		"TextBox",
+		UI["searchFrame"],
+		UDim2.new(0.548, 0,0.5, 0),
+		UDim2.new(0.905, 0,0.8, 0),
+		Color3.fromRGB(255, 255, 255),
+		nil,
+		generateName();
+		false;
+		{mainFont,"SEARCH"}
+	})
+	UI["searchInputBox"] = newUi
 
 	--//Buttons
 	newUi = createInterfaceObject({
