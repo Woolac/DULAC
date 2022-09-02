@@ -274,6 +274,7 @@ local createInterface = function()
 	
 	for _, v in pairs(buttons) do
 		if string.match(v[2], "sidebuttons") then
+			print(v[1])
 			table.insert(allSideButtons,v)
 			
 			local newStroke = Instance.new("UIStroke",v)
