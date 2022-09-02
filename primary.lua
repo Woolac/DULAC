@@ -176,7 +176,7 @@ local createInterface = function()
 		"ImageLabel",
 		UI["searchFrame"],
 		UDim2.new(0.05, 0,0.5, 0),
-		UDim2.new(0.08, 0,0.85, 0),
+		UDim2.new(0.08, 0,0.9, 0),
 		Color3.fromRGB(255, 255, 255),
 		nil,
 		generateName();
