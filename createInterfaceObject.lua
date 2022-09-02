@@ -59,7 +59,7 @@ return function(a1)
 			local labelData = a1[9]
 
 			newObject.Font = labelData[1]
-			newObject.Text = labelData[2]
+			newObject.PlaceholderText = labelData[2]
 			newObject.TextScaled = true
 			newObject.TextXAlignment = "Left"
 		end
