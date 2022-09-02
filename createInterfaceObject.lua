@@ -50,6 +50,19 @@ return function(a1)
 		newObject.CanvasSize = objectData[1]
 	end
 	
+	if objectType == "TextBox" then
+		newObject.BackgroundTransparency = 1 
+		newObject.PlaceholderColor3 = Color3.fromRGB(163, 163, 163)
+		newObject.TextColor3 = Color3.fromRGB(255, 255, 255)
+
+		if a1[9] then
+			local labelData = a1[9]
+
+			newObject.Font = labelData[1]
+			newObject.Text = labelData[2]
+		end
+	end
+
 	if objectType == "TextButton" then
 		newObject.BackgroundColor3 = objectColor
 		
